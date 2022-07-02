@@ -19,9 +19,9 @@ const App = () => {
       <NavBar />
       <Container className="flex-grow-1 mt-5">
         <Switch>
-          <Route path="/ReactApp_Auth0/" exact component={Home} />
-          <PrivateRoute path="/ReactApp_Auth0/profile" component={Profile} />
-          <Route path="/ReactApp_Auth0/external-api" component={ExternalApi} />
+          <Route path="/" exact component={Home} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <Route path="/external-api" component={ExternalApi} />
         </Switch>
       </Container>
       <Footer />
