@@ -73,4 +73,6 @@ export const ExternalApi = () => {
   );
 };
 
-export default ExternalApi;
+export default withAuthenticationRequired(ExternalApi, {
+  onRedirecting: () => <Loading />,
+});
