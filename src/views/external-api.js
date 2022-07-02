@@ -59,7 +59,7 @@ export const ExternalApi = () => {
   
         const responseData = await response.json();
   
-        setMessage(responseData.msg);
+        setMessage(responseData);
       } catch (error) {
         setMessage(error.message);
       }
