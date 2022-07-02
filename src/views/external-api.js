@@ -44,6 +44,27 @@ export const ExternalApi = () => {
       }
     };
 
+    const callRoleApi = async () => {
+      try {
+        const token = await getAccessTokenSilently();
+  
+        const response = await fetch(
+          `${serverUrl}/api/role`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+  
+        const responseData = await response.json();
+  
+        setMessage(responseData.msg);
+      } catch (error) {
+        setMessage(error.message);
+      }
+    };
+
   return (
     <Container className="mb-5">
       <h1>External API</h1>
@@ -58,6 +79,9 @@ export const ExternalApi = () => {
         </Button>
         <Button onClick={callSecureApi} color="primary" className="mt-5">
           Get Private Message
+        </Button>
+        <Button onClick={callRoleApi} color="primary" className="mt-5">
+          Get Role Message
         </Button>
       </ButtonGroup>
 
