@@ -42,3 +42,10 @@ jobs:
         git config --global user.email $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy
+      env:
+        user_name: 'M3rzh1n'
+        user_email: ${{ secrets.USER_EMAIL }}
+        repository: ${{ github.repository }}
+        REACT_APP_AUTH0_DOMAIN: ${{ secrets.REACT_APP_AUTH0_DOMAIN }}
+        REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}
+        REACT_APP_AUDIENCE: ${{ secrets.REACT_APP_AUDIENCE }}
