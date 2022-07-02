@@ -9,7 +9,7 @@ const MainNav = () => (
   <Nav className="mr-auto">
     <Nav.Link
       as={RouterNavLink}
-      to="/"
+      to="/ReactApp_Auth0/"
       exact
       activeClassName="router-link-exact-active"
     >
@@ -17,7 +17,7 @@ const MainNav = () => (
     </Nav.Link>
     <Nav.Link
       as={RouterNavLink}
-      to="/profile"
+      to="/ReactApp_Auth0/profile"
       exact
       activeClassName="router-link-exact-active"
     >
@@ -25,7 +25,7 @@ const MainNav = () => (
     </Nav.Link>
     <Nav.Link
       as={RouterNavLink}
-      to="/external-api"
+      to="/ReactApp_Auth0/external-api"
       exact
       activeClassName="router-link-exact-active"
     >
