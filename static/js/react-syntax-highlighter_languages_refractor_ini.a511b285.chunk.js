@@ -1,0 +1,2 @@
+(this["webpackJsonpauth0-react-sdk-sample"]=this["webpackJsonpauth0-react-sdk-sample"]||[]).push([[60],{195:function(t,s,a){"use strict";function e(t){t.languages.ini={comment:/^[ \t]*[;#].*$/m,selector:/^[ \t]*\[.*?\]/m,constant:/^[ \t]*[^\s=]+?(?=[ \t]*=)/m,"attr-value":{pattern:/=.*/,inside:{punctuation:/^[=]/}}}}t.exports=e,e.displayName="ini",e.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_ini.a511b285.chunk.js.map

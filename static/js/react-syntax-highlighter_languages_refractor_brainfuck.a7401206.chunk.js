@@ -1,0 +1,2 @@
+(this["webpackJsonpauth0-react-sdk-sample"]=this["webpackJsonpauth0-react-sdk-sample"]||[]).push([[18],{157:function(a,e,t){"use strict";function n(a){a.languages.brainfuck={pointer:{pattern:/<|>/,alias:"keyword"},increment:{pattern:/\+/,alias:"inserted"},decrement:{pattern:/-/,alias:"deleted"},branching:{pattern:/\[|\]/,alias:"important"},operator:/[.,]/,comment:/\S+/}}a.exports=n,n.displayName="brainfuck",n.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_brainfuck.a7401206.chunk.js.map

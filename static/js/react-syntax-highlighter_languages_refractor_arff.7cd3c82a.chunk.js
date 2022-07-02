@@ -1,0 +1,2 @@
+(this["webpackJsonpauth0-react-sdk-sample"]=this["webpackJsonpauth0-react-sdk-sample"]||[]).push([[8],{148:function(a,t,e){"use strict";function s(a){a.languages.arff={comment:/%.*/,string:{pattern:/(["'])(?:\\.|(?!\1)[^\\\r\n])*\1/,greedy:!0},keyword:/@(?:attribute|data|end|relation)\b/i,number:/\b\d+(?:\.\d+)?\b/,punctuation:/[{},]/}}a.exports=s,s.displayName="arff",s.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_arff.7cd3c82a.chunk.js.map
