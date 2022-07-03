@@ -28,7 +28,7 @@ export const ExternalApi = () => {
         const token = await getAccessTokenSilently();
   
         const response = await fetch(
-          `${serverUrl}/api/courses/1`,
+          `${serverUrl}/api/mycourses`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -49,7 +49,28 @@ export const ExternalApi = () => {
         const token = await getAccessTokenSilently();
   
         const response = await fetch(
-          `${serverUrl}/api/role`,
+          `${serverUrl}/api/courses/details`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+  
+        const responseData = await response.json();
+  
+        setMessage(responseData);
+      } catch (error) {
+        setMessage(error.message);
+      }
+    };
+
+    const callAdminApi = async () => {
+      try {
+        const token = await getAccessTokenSilently();
+  
+        const response = await fetch(
+          `${serverUrl}/api/courses/details/users`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -75,13 +96,16 @@ export const ExternalApi = () => {
       </p>
       <ButtonGroup>
         <Button onClick={callApi} color="primary" className="mt-5">
-          Get Public Message
+          Get List of Courses
         </Button>
         <Button onClick={callSecureApi} color="primary" className="mt-5">
-          Get Private Message
+          Get My Courses
         </Button>
         <Button onClick={callRoleApi} color="primary" className="mt-5">
-          Get Role Message
+          Get Detailed List of Courses
+        </Button>
+        <Button onClick={callAdminApi} color="primary" className="mt-5">
+          Get Users Enrolled in Courses
         </Button>
       </ButtonGroup>
 
