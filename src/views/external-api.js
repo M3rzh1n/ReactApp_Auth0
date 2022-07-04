@@ -4,6 +4,7 @@ import {Loading, Highlight} from "../components";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 
 const serverUrl = "https://gh0st-api-nodejs.herokuapp.com"
+const booksUrl = "https://gh0st-books-api-nodejs.herokuapp.com"
 
 export const ExternalApi = () => {
   const [message, setMessage] = useState("");
@@ -11,6 +12,92 @@ export const ExternalApi = () => {
 
   const { getAccessTokenSilently } = useAuth0();
 
+// -------------------
+// Books API -----------------------------------------------------------------------
+
+// Books API unprotected
+const callBooksApi = async () => {
+  try {
+    const response = await fetch(`${booksUrl}/api/books`);
+
+    const responseData = await response.json();
+
+    setMessage(responseData);
+  } catch (error) {
+    setMessage(error.message);
+  }
+};
+
+// Books API protected
+const callBooksSecureApi = async () => {
+  try {
+    const token = await getAccessTokenSilently();
+
+    const response = await fetch(
+      `${booksUrl}/api/mybookss`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+
+    const responseData = await response.json();
+
+    setMessage(responseData);
+  } catch (error) {
+    setMessage(error.message);
+  }
+};
+
+    // Books API protected and requires read:courses scope
+    const callBooksRoleApi = async () => {
+      try {
+        const token = await getAccessTokenSilently();
+  
+        const response = await fetch(
+          `${booksUrl}/api/books/details`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+  
+        const responseData = await response.json();
+  
+        setMessage(responseData);
+      } catch (error) {
+        setMessage(error.message);
+      }
+    };
+
+    // Books API protected and requires read:courses and read:admin scope
+    const callBooksAdminApi = async () => {
+      try {
+        const token = await getAccessTokenSilently();
+  
+        const response = await fetch(
+          `${booksUrl}/api/books/details/users`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+  
+        const responseData = await response.json();
+  
+        setMessage(responseData);
+      } catch (error) {
+        setMessage(error.message);
+      }
+    };
+
+// -------------------
+// Courses API -----------------------------------------------------------------------
+
+// Courses API unprotected
   const callApi = async () => {
     try {
       const response = await fetch(`${serverUrl}/api/courses`);
@@ -23,6 +110,7 @@ export const ExternalApi = () => {
     }
   };
 
+// Courses API protected
     const callSecureApi = async () => {
       try {
         const token = await getAccessTokenSilently();
@@ -44,6 +132,7 @@ export const ExternalApi = () => {
       }
     };
 
+    // Courses API protected and requires read:courses scope
     const callRoleApi = async () => {
       try {
         const token = await getAccessTokenSilently();
@@ -65,6 +154,7 @@ export const ExternalApi = () => {
       }
     };
 
+    // Courses API protected and requires read:courses and read:admin scope
     const callAdminApi = async () => {
       try {
         const token = await getAccessTokenSilently();
@@ -106,6 +196,20 @@ export const ExternalApi = () => {
         </Button>
         <Button onClick={callAdminApi} color="primary" className="mt-5">
           Get Users Enrolled in Courses
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button onClick={callBooksApi} color="primary" className="mt-5">
+          Get List of Books
+        </Button>
+        <Button onClick={callBooksSecureApi} color="primary" className="mt-5">
+          Get My Books
+        </Button>
+        <Button onClick={callBooksRoleApi} color="primary" className="mt-5">
+          Get Detailed List of Books
+        </Button>
+        <Button onClick={callBooksAdminApi} color="primary" className="mt-5">
+          Get Users and Books
         </Button>
       </ButtonGroup>
 
