@@ -34,7 +34,7 @@ const callBooksSecureApi = async () => {
     const token = await getAccessTokenSilently();
 
     const response = await fetch(
-      `${booksUrl}/api/mybookss`,
+      `${booksUrl}/api/mybooks`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
