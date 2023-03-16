@@ -1,6 +1,6 @@
 # Easy User Authentication for React Apps
 
-## Get Started
+## Get Started with Auth0
 
 Install project dependencies:
 
